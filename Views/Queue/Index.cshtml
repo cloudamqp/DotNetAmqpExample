@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Message Queueing</h2>
+<input id="publish" type="button" value="Publish" />
+<input id="get" type="button" value="Get" />
+<h4>
+    Messages</h4>
+<ul id="messages">
+</ul>
+<script>
+    $(function () {
+        $("#publish").click(function () {
+            $.post("/queue/publish")
+        })
+
+        $("#get").click(function () {
+            $.post("/queue/get", function (msg) {
+                $("#messages").append("<li>" + msg + "</li>")
+            })
+        })
+    })
+</script>

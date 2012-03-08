@@ -1,0 +1,8 @@
+obj
+bin
+*.csproj.user
+*.suo
+*.cache
+*.userprefs
+*.docstates
+*.VisualState.xml
