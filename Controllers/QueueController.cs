@@ -8,11 +8,12 @@ namespace AmqpExample.Controllers
 {
     public class QueueController : Controller
     {
+        private static string url = ConfigurationManager.AppSettings["CLOUDAMQP_URL"];
         // Create a ConnectionFactory and set the Uri to the CloudAMQP url
         // the connectionfactory is stateless and can safetly be a static resource in your app
         static readonly ConnectionFactory connFactory = new ConnectionFactory
         {
-            Uri = ConfigurationManager.AppSettings["CLOUDAMQP_URL"]
+            Uri =  url.Replace("amqp://", "amqps://"),
         };
 
         public ActionResult Index()
